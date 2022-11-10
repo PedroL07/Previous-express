@@ -2,39 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>21 Savage Fans</title>
+  <title>Coinflip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="stylesheet" href="font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Coin Flip Game</h1>
-  
 
 
-  <h3>Results</h3>
+  <h2>Take a guess and see if you win!</h2>
+
+  <form action="/results" method="POST">
+    <input type="text" placeholder="Guess heads or Tails" name="userGuess" minlength="5" maxlength="5"><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <h4>Results</h4>
   <ul class="messages">
     <% for(var i=0; i<coinFlipResults.length; i++) {%>
     <li class="message">
-      <!-- <span><%= coinFlipResults[i].userGuess %></span> -->
       <span>Coin Results: <%= coinFlipResults[i].coinFlipResult %></span>
       <span><%= coinFlipResults[i].winOrLose %></span>
-      <!-- <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-      <span><i class="fa fa-thumbs-down" aria-hidden="true"></i></span>-->
       <span><i class="fa fa-trash" aria-hidden="true"></i></span> 
     </li>
   <% } %>
   </ul>
 
-  <h2>Take your guess!</h2>
 
-  <form action="/results" method="POST">
-    <!-- <input type="checkbox" value="head" name="userGuess"><label for="userGuess">Heads</label><br>
-    <input type="checkbox" value="tail" name="userGuesss"><label for="userGuess">Tails</label><br> -->
-    <input type="text" placeholder="guess heads or tails" name="userGuess" minlength="5" maxlength="5">
-    <!-- <input type="text" placeholder="message" name="msg"> -->
-    <button type="submit">Submit</button>
-  </form>
 
   <script src="main.js"></script>
 
